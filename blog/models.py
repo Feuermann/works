@@ -7,6 +7,7 @@ class Post(models.Model):
     body = models.TextField()
     date = models.DateTimeField(default=datetime.datetime.now)
     image = models.FileField(null=True, blank=True)
+    author = models.CharField(max_length=50, null= True, blank=True)
 
     def __str__(self):
         return self.title

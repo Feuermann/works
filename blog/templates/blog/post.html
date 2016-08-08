@@ -2,7 +2,11 @@
 
 {% block content %}
     <h3>{{post.title}}</h3>
-    <h6>on {{post.date}}</h6>
+    <h6>on {{post.date}}
+        {% if post.author %}
+        by {{post.author}}
+        {% endif %}
+    </h6>
     {{post.body|safe|linebreaks}}
     {% if post.image %}
     <img src='{{ post.image.url }}' class="responsive-img"  style='max-height:300px;' />
