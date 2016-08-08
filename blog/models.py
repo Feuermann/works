@@ -8,7 +8,6 @@ class Post(models.Model):
     date = models.DateTimeField(default=datetime.datetime.now)
     image = models.FileField(null=True, blank=True)
 
-
     def __str__(self):
         return self.title
 
