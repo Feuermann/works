@@ -1,0 +1,15 @@
+{% extends "webapp/header.html" %}
+
+{% block content %}
+    <h3>{{post.title}}</h3>
+    <h6>on {{post.date}}</h6>
+    {{post.body|safe|linebreaks}}
+    {% if post.image %}
+    <img src='{{ post.image.url }}' class="responsive-img"  style='max-height:300px;' />
+    {% endif %}
+{% endblock %}
+
+{% block bar %}
+    <li><a href='{% url "blog:add_post" %}'>Add book/post</a></li>
+    <li><a href='{% url "blog:post_update" id=post.id %}'>Edit post/book</a></li>
+{% endblock %}

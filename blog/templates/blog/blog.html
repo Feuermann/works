@@ -1,0 +1,23 @@
+{% extends "webapp/header.html" %}
+
+{% block content %}
+    {% for post in object_list %}
+        <div class="blog_posts">
+            <h5 class="blog_post">{{ post.date|date:"Y-m-d" }}
+             -
+            <a href='{{ post.get_absolute_url }}'>
+                {{ post.title }}
+                {% if post.image %}
+                <div id="img">
+                    <img src='{{ post.image.url }}' class="responsive-img"  style='max-height:100px;' />
+                </div>
+                {% endif %}
+                </a>
+            </h5>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block bar %}
+    <li><a href='{% url "blog:add_post" %}'>Add book/post</a></li>
+{% endblock %}
